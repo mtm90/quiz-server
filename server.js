@@ -14,11 +14,13 @@ let quizAnswers = [];
 app.post('/submit-answers', (req, res) => {
     const answers = req.body;
     quizAnswers.push(answers);
+    console.log('Received answers:', answers);  // Log received answers
     res.status(200).send({ message: 'Answers received successfully!' });
 });
 
 // GET route to retrieve all submitted answers
 app.get('/submit-answers', (req, res) => {
+    console.log('Retrieving all answers');  // Log retrieval attempt
     res.status(200).json(quizAnswers);
 });
 
