@@ -10,10 +10,16 @@ app.use(cors());
 
 let quizAnswers = [];
 
+// POST route to submit answers
 app.post('/submit-answers', (req, res) => {
     const answers = req.body;
     quizAnswers.push(answers);
     res.status(200).send({ message: 'Answers received successfully!' });
+});
+
+// GET route to retrieve all submitted answers
+app.get('/submit-answers', (req, res) => {
+    res.status(200).json(quizAnswers);
 });
 
 app.get('/', (req, res) => {
